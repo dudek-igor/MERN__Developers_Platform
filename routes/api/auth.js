@@ -1,10 +1,34 @@
 const express = require('express');
+// Methods
+const {
+  authorizationUser,
+  loginUser,
+  createUser,
+} = require('../../controllers/auth');
+// Middleware
+// Authorization Middleware
+const {
+  authorizationViaToken,
+  checkUserRole,
+} = require('../../middleware/auth');
+// Validate Middleware
+const {
+  registerValidationRules,
+  loginValidationRules,
+  validate,
+} = require('../../utils/validator');
 
+//Mount Routes
 const router = express.Router();
 
-// @route GET api/auth
-// @desc  Test route
-// Public
-router.route('/').get((req, res) => res.send('Auth Route'));
+router
+  .route('/')
+  .get(
+    authorizationViaToken,
+    checkUserRole('admin', 'user'),
+    authorizationUser
+  );
+router.route('/login').post(loginValidationRules, validate, loginUser);
+router.route('/register').post(registerValidationRules, validate, createUser);
 
 module.exports = router;

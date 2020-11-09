@@ -1,7 +1,7 @@
 const express = require('express');
 const connectDB = require('./config/db.js');
 // Route
-const user = require('./routes/api/user');
+const user = require('./routes/api/users');
 const auth = require('./routes/api/auth');
 const posts = require('./routes/api/posts');
 const profile = require('./routes/api/profile');
@@ -11,7 +11,7 @@ const app = express();
 // Connect DataBase
 connectDB();
 
-// Middleware
+// Init Middleware
 // Parse JSON
 app.use(express.json());
 
