@@ -1,10 +1,12 @@
 # Developers Platform
 
-> First MERN Stack project
+> MERN Stack project
 
 ### Usage
 
 ### Dependencies
+
+1. Backend:
 
 - bcryptjs,
 - config,
@@ -12,4 +14,14 @@
 - express-validator,
 - jsonwebtoken,
 - mongoose,
-- request
+- axios
+- gravatar
+- uuid
+
+2. Frontend:
+
+- React
+- Redux
+- Redux-thunk
+- Moment
+- Axios
