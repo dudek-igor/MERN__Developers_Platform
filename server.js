@@ -1,12 +1,15 @@
 const express = require('express');
 const connectDB = require('./config/db.js');
 const path = require('path');
+const dotenv = require('dotenv');
 // Route
 const user = require('./routes/api/users');
 const auth = require('./routes/api/auth');
 const posts = require('./routes/api/posts');
 const profile = require('./routes/api/profile');
 
+// Load env vars from config
+dotenv.config({ path: './config/config.env' });
 // Initial Express
 const app = express();
 // Connect DataBase

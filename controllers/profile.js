@@ -1,7 +1,6 @@
 const Profile = require('../model/Profile');
 const User = require('../model/User');
 const axios = require('axios');
-const config = require('config');
 const Post = require('../model/Post');
 
 // @route GET api/profile/me
@@ -190,7 +189,7 @@ exports.getGithubRepo = async (req, res) => {
 
     const headers = {
       'user-agent': 'node.js',
-      Authorization: `token ${config.get('githubToken')}`,
+      Authorization: `token ${process.env.GithubToken}`,
     };
 
     const gitHubResponse = await axios.get(uri, { headers });

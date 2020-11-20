@@ -4,12 +4,14 @@
 
 ### Usage
 
+[Developers Connector](https://protected-mountain-93708.herokuapp.com/)
+
 ### Dependencies
 
 1. Backend:
 
 - bcryptjs,
-- config,
+- dotenv,
 - express,
 - express-validator,
 - jsonwebtoken,

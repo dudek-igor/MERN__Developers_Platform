@@ -1,7 +1,6 @@
 const User = require('../model/User');
 const gravatar = require('gravatar');
 const bcrypt = require('bcryptjs');
-const config = require('config');
 const jwt = require('jsonwebtoken');
 
 //Methods
@@ -44,7 +43,7 @@ exports.loginUser = async (req, res) => {
     };
     jwt.sign(
       payload,
-      config.get('jwtSecret'),
+      process.env.JwtSecret,
       { expiresIn: 360000 },
       (err, token) => {
         if (err) {
@@ -91,7 +90,7 @@ exports.createUser = async (req, res) => {
     };
     jwt.sign(
       payload,
-      config.get('jwtSecret'),
+      process.env.JwtSecret,
       { expiresIn: 360000 },
       (err, token) => {
         if (err) {
