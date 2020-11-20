@@ -23,8 +23,8 @@ exports.loginValidationRules = [
 ];
 
 exports.profileValidationRules = [
-  // check('status', 'Status is reguired').not().isEmpty(),
-  // check('skills', 'Skills is reguired').not().isEmpty(),
+  check('status', 'Status is reguired').not().isEmpty(),
+  check('skills', 'Skills is reguired').not().isEmpty(),
 ];
 exports.experienceValidationRules = [
   check('title', 'Title is reguired').not().isEmpty(),

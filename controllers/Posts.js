@@ -12,10 +12,8 @@ exports.createPost = async (req, res) => {
     req.body.name = user.name;
     req.body.avatar = user.avatar;
     req.body.user = req.user.id;
-    res.json({ post: req.body });
     const post = await Post.create(req.body);
-
-    res.stats(201).json(post);
+    res.status(201).json(post);
   } catch (error) {
     console.error(error.message);
     res.status(500).send('Server Error');

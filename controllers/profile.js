@@ -2,7 +2,7 @@ const Profile = require('../model/Profile');
 const User = require('../model/User');
 const axios = require('axios');
 const config = require('config');
-// const Post = require('../model/Post');
+const Post = require('../model/Post');
 
 // @route GET api/profile/me
 // @desc  Get current user's profile
@@ -75,7 +75,7 @@ exports.getProfile = async (req, res) => {
     }
     res.status(200).json({ data: profile });
   } catch (error) {
-    console.error(error.message);
+    // console.error(error.message);
     if (error.kind === 'ObjectId') {
       return res.status(400).json({ msg: 'Profile not found' });
     }
@@ -91,9 +91,9 @@ exports.deleteProfile = async (req, res) => {
   const idFromToken = req.user.id;
   try {
     // Remove user posts
-    // await Post.findOneAndRemove({
-    //   user: idFromToken,
-    // });
+    await Post.deleteMany({
+      user: idFromToken,
+    });
     // Remove profile
     await Profile.findOneAndRemove({
       user: idFromToken,

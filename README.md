@@ -1,10 +1,11 @@
-# In Touch Platform for Developers
+# Developers Platform
 
 > First MERN Stack project
 
 ### Usage
 
 ### Dependencies
+
 - bcryptjs,
 - config,
 - express,
